@@ -1,3 +1,4 @@
+
 myProps: #自定义的属性和值
   address: sz baoan
   simpleProp: simplePropValue
@@ -13,3 +14,16 @@ myProps: #自定义的属性和值
   mapProps:
     key1: value1
     key2: value2
+logging:
+  #指定位置需要 使用classpath：
+  config: classpath:logback-dev.xml
+
+
+server:
+  port: 9090
+
+
+
+
+
+

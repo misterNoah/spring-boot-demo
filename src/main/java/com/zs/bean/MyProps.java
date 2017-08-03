@@ -1,4 +1,4 @@
-package com.zs.com.zs.bean;
+package com.zs.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
