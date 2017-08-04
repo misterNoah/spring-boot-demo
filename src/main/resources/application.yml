@@ -5,7 +5,7 @@ logging:
   #指定位置需要 使用classpath：
   config: classpath:logback-dev.xml
 durid:
-  url: jdbc:mysql://127.0.0.1:3306/lawyer?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&statementInterceptors=com.zs.interceptor.ShowSqlInterceptor
+  url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&statementInterceptors=com.zs.interceptor.ShowSqlInterceptor
   userName: sa
   password: sa
 
