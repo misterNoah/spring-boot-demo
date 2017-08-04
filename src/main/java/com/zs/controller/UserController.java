@@ -21,6 +21,7 @@ public class UserController {
     Logger logger= LoggerFactory.getLogger(this.getClass());
     @RequestMapping("/index")
     public String index(Model model) {
+
         model.addAttribute("name","zhangshuqing");
         return "index";
     }
