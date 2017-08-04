@@ -35,6 +35,7 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     private void bindLogger(){
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String method = request.getMethod();
         String ip=request.getRemoteAddr();
         MDC.put("USER_IP","【用户IP:"+ip+"】");
     }
