@@ -1,23 +1,13 @@
 
 myProps: #自定义的属性和值
   address: sz baoan
-  simpleProp: simplePropValue
-  arrayProps: 1,2,3,4,5
-  listProp1:
-    - name: abc
-      value: abcValue
-    - name: efg
-      value: efgValue
-  listProp2:
-    - config2Value1
-    - config2Vavlue2
-  mapProps:
-    key1: value1
-    key2: value2
 logging:
   #指定位置需要 使用classpath：
   config: classpath:logback-dev.xml
-
+durid:
+  url: jdbc:mysql://127.0.0.1:3306/lawyer?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&statementInterceptors=com.zs.interceptor.ShowSqlInterceptor
+  userName: sa
+  password: sa
 
 server:
   port: 9090
