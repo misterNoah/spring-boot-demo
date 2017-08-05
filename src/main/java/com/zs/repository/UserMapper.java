@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * Created by zhangshuqing on 2017/8/4.
  */
+
+
 public interface UserMapper {
 
     List<User> findAllUser();

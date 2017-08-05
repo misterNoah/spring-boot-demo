@@ -1,8 +1,7 @@
 package com.zs.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.zs.handler.UserHandler;
-import org.apache.ibatis.plugin.Interceptor;
+import com.zs.handler.ListStrHandler;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -47,11 +46,11 @@ public class DataSourceInit {
     static Logger logger= LoggerFactory.getLogger(DataSourceInit.class.getName());
 
     /** 要加载的 mybatis 的配置文件目录 */
-    private static final String[] RESOURCE_PATH = new String[] { "auto/*.xml" };
+    private static final String[] RESOURCE_PATH = new String[] { "mapper/*.xml" };
     private static final Resource[] RESOURCE_ARRAY;
 
     /** 要加载的 mybatis 类型处理器的目录  随便选择一个用来获取包名*/
-    private static final String PACKAGE = UserHandler.class.getPackage().getName();
+    private static final String PACKAGE = ListStrHandler.class.getPackage().getName();
     private static final TypeHandler[] HANDLE_ARRAY;
     static {
         RESOURCE_ARRAY = getResourceArray();
@@ -59,7 +58,7 @@ public class DataSourceInit {
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "druid") // 加载以 druid 开头的配置
+    @ConfigurationProperties(prefix = "durid") // 加载以 durid 开头的配置
     public DataSource setupDruid() {
         return DataSourceBuilder.create().type(DruidDataSource.class).build();
     }
@@ -166,6 +165,8 @@ public class DataSourceInit {
         }
         return null;
     }
+
+
 
     /** 以，拼接数组值**/
     public String toStr(Object[] array){

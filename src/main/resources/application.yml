@@ -7,7 +7,8 @@ logging:
 durid:
   url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&statementInterceptors=com.zs.interceptor.ShowSqlInterceptor
   userName: root
-  password:
+  password: sa
+  filters: stat,wall
 
 server:
   port: 9090

@@ -27,7 +27,7 @@ CREATE TABLE `user` (
   `REG_TMIE` bigint(255) DEFAULT NULL,
   `INTEREST` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user

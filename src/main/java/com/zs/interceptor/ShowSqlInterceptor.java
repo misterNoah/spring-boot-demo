@@ -23,7 +23,6 @@ import java.util.Properties;
  * Time: 18:37
  */
 
-@Component
 public class ShowSqlInterceptor implements StatementInterceptor {
     Logger logger= LoggerFactory.getLogger(this.getClass().getName());
     @Override
@@ -39,7 +38,7 @@ public class ShowSqlInterceptor implements StatementInterceptor {
                s= SQLUtils.formatMySql(s.substring(s.indexOf(":")+1).trim());
            }
            if(!StringUtils.isEmpty(s)){
-               logger.debug(s);
+               logger.info(s);
            }
        }
         return null;
