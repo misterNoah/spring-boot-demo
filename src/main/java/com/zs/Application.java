@@ -16,14 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Application{
     private Logger logger= LoggerFactory.getLogger(this.getClass());
 
-    @Value("${myProps.address}")
-    private String address;
-
-    @RequestMapping("/")
-    public String greeting(){
-        logger.info("request is coming ...");
-        return "hello world "+address;
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);

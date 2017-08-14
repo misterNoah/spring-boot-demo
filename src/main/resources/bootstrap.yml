@@ -1,0 +1,22 @@
+
+
+
+spring:
+  application:
+    name: application
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://119.29.8.106:8888/
+
+
+logging:
+  config: classpath:logback-dev.xml
+
+
+
+
+
+
+

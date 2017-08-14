@@ -1,20 +1,6 @@
-
-myProps: #自定义的属性和值
-  address: sz baoan
-logging:
-  #指定位置需要 使用classpath：
-  config: classpath:logback-dev.xml
-durid:
-  url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&statementInterceptors=com.zs.interceptor.ShowSqlInterceptor
-  userName: root
-  password: sa
-  filters: stat,wall
-
 server:
   port: 9090
-# debug true/false 是否启用debug模式
-debug: true
-
+#spring官方建议我们在bootstrap中放置不更改的属性.
 
 
 

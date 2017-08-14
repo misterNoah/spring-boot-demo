@@ -1,5 +1,6 @@
 package com.zs.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zs.bean.User;
 import com.zs.service.UserService;
 import com.zs.type.Date4LongType;
@@ -7,6 +8,7 @@ import com.zs.type.ListStrType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,12 @@ import java.util.*;
 public class UserController {
 
     Logger logger= LoggerFactory.getLogger(this.getClass());
+
+    @Value("${app.name}")
+    private String appName;
+
+    @Value("${app.appVersion}")
+    private String appVersion;
 
     @Autowired
     UserService userService;
@@ -58,5 +66,15 @@ public class UserController {
         System.out.println(userList);
         map.put("userList",userList);
         return map;
+    }
+
+    @RequestMapping("/appVersion")
+    @ResponseBody
+    public JSONObject appVersion(){
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("appName",appName);
+        jsonObject.put("appVersion",appVersion);
+        return jsonObject;
+
     }
 }
