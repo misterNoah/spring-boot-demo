@@ -26,11 +26,7 @@ public class UserController {
 
     Logger logger= LoggerFactory.getLogger(this.getClass());
 
-    @Value("${app.name}")
-    private String appName;
 
-    @Value("${app.appVersion}")
-    private String appVersion;
 
     @Autowired
     UserService userService;
@@ -68,6 +64,13 @@ public class UserController {
         return map;
     }
 
+
+    @Value("${app.name}")
+    String appName;
+
+    @Value("${app.version}")
+    String appVersion;
+
     @RequestMapping("/appVersion")
     @ResponseBody
     public JSONObject appVersion(){
@@ -77,4 +80,7 @@ public class UserController {
         return jsonObject;
 
     }
+
+
+
 }
