@@ -9,7 +9,7 @@
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder charset="UTF-8">
             <!--设置控制台高亮输出 -->
-            <pattern>%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %msg%n</pattern>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %X{USER_IP} %X{BROWSER} %X{OPERATION} %msg%n</pattern>
         </encoder>
     </appender>
     <root level="INFO">

@@ -1,5 +1,6 @@
 package com.zs.interceptor;
 
+import eu.bitwalker.useragentutils.UserAgent;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -37,7 +38,12 @@ public class BaseInterceptor implements HandlerInterceptor {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String method = request.getMethod();
         String ip=request.getRemoteAddr();
+        UserAgent userAgent=UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
+        String browser=userAgent.getBrowser().toString();
+        String operation=userAgent.getOperatingSystem().toString();
         MDC.put("USER_IP","【用户IP:"+ip+"】");
+        MDC.put("BROWSER","【浏览器:"+browser+"】");
+        MDC.put("OPERATION","【操作系统:"+operation+"】");
     }
 
 
