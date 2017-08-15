@@ -1,5 +1,8 @@
 package com.zs.type;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
@@ -9,13 +12,10 @@ import java.util.List;
  * Date: 2017-08-05
  * Time: 9:13
  */
+
+@Getter
+@Setter
 public class ListStrType {
     private List<String> values;
-    public List<String> getValues() {
-        return values;
-    }
 
-    public void setValues(List<String> values) {
-        this.values = values;
-    }
 }

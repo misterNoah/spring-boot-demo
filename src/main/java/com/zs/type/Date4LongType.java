@@ -8,19 +8,20 @@ package com.zs.type;
  * Time: 9:13
  */
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
 /**
  * 存入数据为long 取出来为date
  */
+
+
+@Getter
+@Setter
 public class Date4LongType {
     private Date currentTime;
 
-    public Date getCurrentTime() {
-        return currentTime;
-    }
 
-    public void setCurrentTime(Date currentTime) {
-        this.currentTime = currentTime;
-    }
 }
