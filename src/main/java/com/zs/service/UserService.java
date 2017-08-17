@@ -1,6 +1,7 @@
 package com.zs.service;
 
 import com.zs.bean.User;
+import com.zs.exception.ServiceException;
 import com.zs.repository.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,9 @@ public class UserService {
 
     public List<User> findAllUser(){
         return userMapper.findAllUser();
+    }
+
+    public void test(){
+        throw new ServiceException("test exception");
     }
 }

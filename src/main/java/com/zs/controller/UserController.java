@@ -80,6 +80,12 @@ public class UserController {
         return jsonObject;
 
     }
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test(){
+        userService.test();
+        return "sdfsdfsd";
+    }
 
 
 
