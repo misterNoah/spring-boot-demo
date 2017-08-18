@@ -53,7 +53,12 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter {
        super.addInterceptors(registry);
     }
 
-    //返回值的处理
+    /**
+     *  自定义的returnHandler先级最低
+     *  返回值的处理 spring mvc无法解析的返回值，可以利用这个来返回自定义的类型
+     *
+     */
+
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
         super.addReturnValueHandlers(returnValueHandlers);
