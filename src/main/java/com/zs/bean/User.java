@@ -2,10 +2,7 @@ package com.zs.bean;
 
 import com.zs.type.Date4LongType;
 import com.zs.type.ListStrType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 
@@ -22,6 +19,7 @@ import lombok.experimental.Accessors;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Accessors(chain = true)
 public class User {
     private Long id;
