@@ -1,5 +1,7 @@
 package com.zs.schedule;
 
+import com.zs.schedule.common.SpringContextHolder;
+import com.zs.schedule.quartz.Quartz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
@@ -24,5 +26,9 @@ public class Scheduler implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         logger.info("onApplicationEvent......");
+        String[] names = SpringContextHolder.getApplicationContext().getBeanNamesForType(Quartz.class);
+        for (String name:names){
+            logger.warn(name);
+        }
     }
 }
