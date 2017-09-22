@@ -1,6 +1,7 @@
 package com.zs.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.support.http.StatViewServlet;
 import com.zs.handler.ListStrHandler;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeHandler;
@@ -8,8 +9,11 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,6 +49,12 @@ public class DataSourceInit {
 
     static Logger logger= LoggerFactory.getLogger(DataSourceInit.class.getName());
 
+    @Value("${app.version}")
+    String appVersion;
+
+    @Value("${spring.datasource.type}")
+    private Class<? extends DataSource> dataSourceType;
+
     /** 要加载的 mybatis 的配置文件目录 */
     private static final String[] RESOURCE_PATH = new String[] { "mapper/*.xml" };
     private static final Resource[] RESOURCE_ARRAY;
@@ -63,8 +73,16 @@ public class DataSourceInit {
         return DataSourceBuilder.create().type(DruidDataSource.class).build();
     }
 
+    /** 非线上则将 druid 的 servlet 开启 */
+    @Bean
+    @ConditionalOnProperty(name = {"online"}, havingValue = "false")
+    public ServletRegistrationBean druidServlet() {
+        return new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+    }
+
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
+        logger.info(dataSourceType.toString());
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(setupDruid());
         // sessionFactory.setConfigLocation(new ClassPathResource("mybatis-config.xml"));

@@ -2,6 +2,8 @@ server:
   port: 9090
 #spring官方建议我们在bootstrap中放置不更改的属性.
 
+online: false
+
 
 
 
